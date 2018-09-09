@@ -24,13 +24,13 @@ public class RedisTest {
         jedis.hset("phash", "name", p.getName());
         System.out.println(jedis.hgetAll("phash"));
         
-        for(int i = 0; i<1000; i++) {
-            jedis.pfadd("count3", "user3" + i);
-            long total = jedis.pfcount("count");
-            if(total != i+1) {
-                System.out.printf("%d %d\n", total, i + 1);
-            }
-        }
+//        for(int i = 0; i<1000; i++) {
+//            jedis.pfadd("count3", "user3" + i);
+//            long total = jedis.pfcount("count");
+//            if(total != i+1) {
+//                System.out.printf("%d %d\n", total, i + 1);
+//            }
+//        }
         
         jedis.pfmerge("count3", "count2");
         System.out.println(jedis.pfcount("count3"));
